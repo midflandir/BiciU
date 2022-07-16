@@ -1,6 +1,6 @@
 # BiciU
 
-Bicicle loan app
+Bicicle borrow app
 
 ## How to use
 
