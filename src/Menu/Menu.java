@@ -11,19 +11,25 @@ public static Registerpatient patients = new Registerpatient();
 
     public static Billing bill = new Billing();
     public static void mainmenu(){
-        Integer opcion;
-
+        Integer option;
+    try {
         System.out.println(" ___________..........___________" +
-                "\n" + "Sanipet - Veterinary care center" +
-                "\n" + "1. Register patient " +
-                "\n" + "2. Appoinments" +
-                "\n" + "3. Billing" +
-                "\n" + "4. Medicine Stock" +
-                "\n" + "5. Exit" +
+                "\n" + "BICI - U" +
+                "\n" + "1. Register user " +
+                "\n" + "2. Borrow Bicycle" +
+                "\n" + "3. Return Bicycle" +
+                "\n" + "4. Pay tickets" +
+                "\n" + "5. Tickets history" +
+                "\n" + "6. Exit" +
                 "");
-        opcion = Integer.parseInt(in.nextLine());
+        option = Integer.parseInt(in.nextLine());
 
-        options(opcion);
+        options(option);
+    }catch (Exception e){
+        System.out.println("Wrong option");
+        mainmenu();
+    }
+
     }
 
     public static void options(Integer Option){
@@ -41,9 +47,12 @@ public static Registerpatient patients = new Registerpatient();
             case 4:
                 meds.start();
             break ;
+            case 5:
+                meds.start();
+                break ;
 
         }
-        if(Option != 5) {
+        if(Option != 6) {
             mainmenu();
         }
     }
