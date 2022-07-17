@@ -13,11 +13,11 @@ public class Registeruser {
 
         System.out.println("press Student (S) or Professor (P)");
         userrole = in.nextLine();
-        if (userrole == "S" || userrole == "P") {
+        if (userrole.equals("S") || userrole.equals("P") ) {
             userrole = "S";
             readdata(userrole);
         }
-        if (userrole != "P" && userrole != "S") {
+        if (!userrole.equals("S") && !userrole.equals("P")) {
             System.out.println("Wrong Option");
         }
 
@@ -50,12 +50,15 @@ public class Registeruser {
                                  Integer auxage) {
 
         try {
-            FileWriter myWriter = new FileWriter("Data/users.txt");
+            FileWriter myWriter = new FileWriter("src/Data/users.txt");
             myWriter.write(userrole + "-" + auxdni + ";" +
                     auxname + " " + auxsurname + ";" +
                     auxage);
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            System.out.println("Register Completed!" +
+                    "ID: " + userrole + "-" + auxdni +
+                    "Name: " + auxname + " " + auxsurname +
+                    "Age: " + auxage);
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
