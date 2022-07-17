@@ -6,9 +6,12 @@ import Domain.Users.user;
 import Domain.bicycle.Bicycle;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -17,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 public class DaoTickets {
-
+    private static List<String> lines;
     public static void Ticketgenerator(String userID, String username, Bicycle bicycle, Integer ticketnumber) {
 
 String ticketformat="T-";
@@ -70,7 +73,7 @@ String ticketformat="T-";
             while ((sCurrentLine = br.readLine()) != null) {
                 Ticket auxticket = new Ticket();
                 arr.add(sCurrentLine);
-                String[] arrOfStr = sCurrentLine.split(";", 10);
+                String[] arrOfStr = sCurrentLine.split(";");
                 auxticket.setCode(arrOfStr[0]);
                 auxticket.setBicycle(arrOfStr[1]);
                 auxticket.setUser(arrOfStr[2]);
@@ -97,4 +100,37 @@ String ticketformat="T-";
             return null;
         }
     }
+
+
+
+
+    public static void updateticket(Ticket ticket) throws IOException {
+        File f = new File("src/Data/tickets.txt");
+        lines = Files.readAllLines(f.toPath(), Charset.defaultCharset());
+        changeticket(ticket); // the name and the value you want to modify
+        Files.write(f.toPath(), changeticket(ticket), Charset.defaultCharset());
+    }
+
+    private static List<String> changeticket(Ticket ticket) {
+        List<String> newLines = new ArrayList<String>();
+        for (String line : lines) {
+            if (line.contains(ticket.getCode())) {
+                String[] vals = line.split(";");
+                newLines.add(vals[0] + ";" + vals[1] + ";" + vals[2]
+                        + ";" + vals[3] + ";" + vals[4] + ";" + ticket.getEndtime() + ";"
+                        + ticket.getHashelmet() + ";" + ticket.getGoodcondition()
+                        + ";" + ticket.getStatus().name() + ";"+ ticket.getAmount());
+            } else {
+                newLines.add(line);
+            }
+
+        }
+        return newLines;
+    }
+
+
+
+
+
+
 }
