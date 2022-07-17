@@ -50,14 +50,14 @@ public class Registeruser {
                                  Integer auxage) {
 
         try {
-            FileWriter myWriter = new FileWriter("src/Data/users.txt");
-            myWriter.write(userrole + "-" + auxdni + ";" +
+            FileWriter myWriter = new FileWriter("src/Data/users.txt", true);
+            myWriter.append("\n" + userrole + "-" + auxdni + ";" +
                     auxname + " " + auxsurname + ";" +
                     auxage);
             myWriter.close();
-            System.out.println("Register Completed!" +
-                    "ID: " + userrole + "-" + auxdni +
-                    "Name: " + auxname + " " + auxsurname +
+            System.out.println("Register Completed! \n" +
+                    "ID: " + userrole + "-" + auxdni + "\n" +
+                    "Name: " + auxname + " " + auxsurname + "\n" +
                     "Age: " + auxage);
         } catch (IOException e) {
             System.out.println("An error occurred.");
