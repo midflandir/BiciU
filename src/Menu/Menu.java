@@ -1,5 +1,6 @@
 package Menu;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -32,7 +33,7 @@ public class Menu {
         }
     }
 
-    public static void options(Integer Option) {
+    public static void options(Integer Option) throws IOException {
 
         switch (Option) {
             case 1:

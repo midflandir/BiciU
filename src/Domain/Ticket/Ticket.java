@@ -1,26 +1,27 @@
 package Domain.Ticket;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class Ticket {
 
     private String code;
     private String bicycle;
     private String User;
-    private Date date;
-    private Time Starttime;
-    private Time Endtime;
-    private Boolean helmetDebt;
-    private Boolean DamagedDebt;
+    private LocalDate date;
+    private LocalTime Starttime;
+    private LocalTime Endtime;
+    private Boolean hashelmet;
+    private Boolean goodcondition;
     private Status status;
     private Double Amount;
 
     public Ticket() {
     }
 
-    public Ticket(String code, String bicycle, String user, Date date,
-                  Time starttime, Time endtime, Boolean helmetDebt,
+    public Ticket(String code, String bicycle, String user, LocalDate date,
+                  LocalTime starttime, LocalTime endtime, Boolean helmetDebt,
                   Boolean damagedDebt, Status status, Double amount) {
         this.code = code;
         this.bicycle = bicycle;
@@ -28,8 +29,8 @@ public class Ticket {
         this.date = date;
         Starttime = starttime;
         Endtime = endtime;
-        this.helmetDebt = helmetDebt;
-        DamagedDebt = damagedDebt;
+        this.hashelmet = helmetDebt;
+        goodcondition = damagedDebt;
         this.status = status;
         Amount = amount;
     }
@@ -58,44 +59,44 @@ public class Ticket {
         User = user;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Time getStarttime() {
+    public LocalTime getStarttime() {
         return Starttime;
     }
 
-    public void setStarttime(Time starttime) {
+    public void setStarttime(LocalTime starttime) {
         Starttime = starttime;
     }
 
-    public Time getEndtime() {
+    public LocalTime getEndtime() {
         return Endtime;
     }
 
-    public void setEndtime(Time endtime) {
+    public void setEndtime(LocalTime endtime) {
         Endtime = endtime;
     }
 
-    public Boolean getHelmetDebt() {
-        return helmetDebt;
+    public Boolean getHashelmet() {
+        return hashelmet;
     }
 
-    public void setHelmetDebt(Boolean helmetDebt) {
-        this.helmetDebt = helmetDebt;
+    public void setHashelmet(Boolean hashelmet) {
+        this.hashelmet = hashelmet;
     }
 
-    public Boolean getDamagedDebt() {
-        return DamagedDebt;
+    public Boolean getGoodcondition() {
+        return goodcondition;
     }
 
-    public void setDamagedDebt(Boolean damagedDebt) {
-        DamagedDebt = damagedDebt;
+    public void setGoodcondition(Boolean goodcondition) {
+        this.goodcondition = goodcondition;
     }
 
     public Status getStatus() {
