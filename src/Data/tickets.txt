@@ -1,5 +1,6 @@
 T-001;BIC-03;S-qawewqe;2022-07-17;09:20:20.443094900;11:12:37.155354600;false;false;Pending;13.0
 T-002;BIC-04;S-345;2022-07-17;09:22:01.882283;-;true;true;Active;0 
-T-003;BIC-07;S-qawewqe;2022-07-17;10:09:30.123996300;-;true;true;Active;0 
+T-003;BIC-07;S-qawewqe;2022-07-17;10:09:30.123996300;11:28:23.348094600;false;false;Pending;12.0
 T-004;BIC-09;ticketsize;2022-07-17;10:11:04.609933200;-;true;true;Active;0 
 T-005;BIC-05;S-qawewqe;2022-07-17;10:13:21.572435700;-;true;true;Active;0 
+T-006;BIC-12;S-349857;2022-07-17;11:49:17.758497400;-;true;true;Active;0 

@@ -23,7 +23,7 @@ public class DaoTickets {
     private static List<String> lines;
     public static void Ticketgenerator(String userID, String username, Bicycle bicycle, Integer ticketnumber) {
 
-String ticketformat="T-";
+        String ticketformat="T-";
 
         if (ticketnumber <= 9){
             ticketformat= "T-00";

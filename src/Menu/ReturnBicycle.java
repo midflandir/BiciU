@@ -52,7 +52,7 @@ public class ReturnBicycle {
                         TimeUnit.MILLISECONDS.toMinutes(millis));
                 Integer intminutes = Integer.parseInt(minutes);
                 if (intminutes > 30) {
-                    auxticket.setAmount(auxticket.getAmount() + (int) intminutes / 30);
+                    auxticket.setAmount(auxticket.getAmount() + (((int) intminutes / 30) * 3));
                     auxticket.setStatus(Status.Pending);
                 }
                     if(helmet.equals("N")){

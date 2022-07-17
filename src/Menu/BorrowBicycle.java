@@ -56,7 +56,7 @@ public class BorrowBicycle {
         Ticketlist = readtickets();
         boolean hasdebt = false;
         for (int i = 0; i < Ticketlist.size(); i++) {
-            if (Ticketlist.get(i).getAmount() > 0) {
+            if (Ticketlist.get(i).getAmount() > 0 && Ticketlist.get(i).getUser().equals(userID)) {
                 hasdebt = true;
 
             }
