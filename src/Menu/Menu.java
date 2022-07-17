@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private static Scanner in = new Scanner(System.in);
     public static BorrowBicycle borrow = new BorrowBicycle();
     public static PayTickets pay = new PayTickets();
     public static Registeruser register = new Registeruser();
     public static ReturnBicycle returnBicy = new ReturnBicycle();
     public static Ticketshistory ticketshis = new Ticketshistory();
+    private static Scanner in = new Scanner(System.in);
 
     public static void mainmenu() {
         Integer option;
