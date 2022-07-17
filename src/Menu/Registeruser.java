@@ -1,9 +1,14 @@
 package Menu;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+import Domain.Users.user;
 
 public class Registeruser {
     private static Scanner in = new Scanner(System.in);
@@ -13,7 +18,7 @@ public class Registeruser {
 
         System.out.println("press Student (S) or Professor (P)");
         userrole = in.nextLine();
-        if (userrole.equals("S") || userrole.equals("P") ) {
+        if (userrole.equals("S") || userrole.equals("P")) {
             userrole = "S";
             readdata(userrole);
         }
@@ -22,7 +27,8 @@ public class Registeruser {
         }
 
     }
-    public static void readdata(String userrole){
+
+    public static void readdata(String userrole) {
         String auxname, auxsurname, auxdni;
         Integer auxage;
         System.out.println("Please enter your DNI");
@@ -31,29 +37,31 @@ public class Registeruser {
         auxname = in.nextLine();
         System.out.println("Please enter your surname");
         auxsurname = in.nextLine();
-        try{
+        try {
             System.out.println("Please enter your age");
             auxage = Integer.parseInt(in.nextLine());
-            if (auxage >= 18){
+            if (auxage >= 18) {
                 register(userrole, auxdni, auxname, auxsurname, auxage);
             }
-            if (auxage < 18){
+            if (auxage < 18) {
                 System.out.println("You must be 18+ years old to be registered");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Error - you must enter your age in numbers");
         }
 
     }
-    public static  void register(String userrole, String auxdni,
-                                 String auxname, String auxsurname,
-                                 Integer auxage) {
+
+    public static void register(String userrole, String auxdni,
+                                String auxname, String auxsurname,
+                                Integer auxage) {
 
         try {
             FileWriter myWriter = new FileWriter("src/Data/users.txt", true);
-            myWriter.append("\n" + userrole + "-" + auxdni + ";" +
+            myWriter.append(userrole + "-" + auxdni + ";" +
                     auxname + " " + auxsurname + ";" +
-                    auxage);
+                    auxage + ";" +
+                    "0 \n"); // default Debt in 0s
             myWriter.close();
             System.out.println("Register Completed! \n" +
                     "ID: " + userrole + "-" + auxdni + "\n" +
@@ -64,7 +72,5 @@ public class Registeruser {
             e.printStackTrace();
         }
     }
-
-
 
 }
